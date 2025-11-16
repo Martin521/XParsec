@@ -467,6 +467,11 @@ module Operator =
         let power = Precedence.value power
         RHS(InfixLeft(op, parseOp, power, complete))
 
+    /// Creates a left-associative infix operator with the specified properties.
+    let infixLeftAssoc2 op power parseOp complete =
+        let power = Precedence.value power
+        RHS(InfixLeft(op, parseOp op, power, complete))
+
     /// Creates a right-associative infix operator with the specified properties.
     let infixRightAssoc op power parseOp complete =
         let power = Precedence.value power
